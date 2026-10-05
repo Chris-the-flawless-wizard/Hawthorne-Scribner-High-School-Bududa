@@ -45,8 +45,13 @@ img { max-width: 100%; display: block; }
 .nameplate strong { font-family: var(--serif); font-size: 1.05rem; letter-spacing: -0.02em; }
 .nameplate span { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; opacity: .9; }
 .brand { display: flex; align-items: center; gap: 10px; }
-.crest { display: none; }
-.brand h1, .brand p { display: none; }
+.badge {
+  width: 62px; height: 62px; object-fit: contain; border-radius: 14px;
+  background: #0c1020; padding: 3px;
+  box-shadow: 0 8px 16px rgba(27,20,100,.25);
+}
+.badge.hero-badge { width: 128px; height: 128px; border-radius: 22px; margin-bottom: 12px; }
+.footer-badge { width: 84px; height: 84px; object-fit: contain; background: #0c1020; border-radius: 16px; padding: 4px; }
 .search input, .field input, .field select, .field textarea, .chat-compose input {
   border: 1px solid var(--line); background: white; border-radius: 999px;
   padding: 11px 14px; font: inherit; color: var(--ink); outline: none;
