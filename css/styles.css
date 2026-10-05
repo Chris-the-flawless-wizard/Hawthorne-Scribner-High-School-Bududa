@@ -14,15 +14,24 @@
   --sans: "Sora", "Segoe UI", sans-serif;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; height: 100%; }
 body {
   margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
   color: var(--ink);
   font-family: var(--sans);
   line-height: 1.55;
-  background: linear-gradient(120deg, #041833, #0a3d91, #1a73e8, #49d4ff, #0e4cad, #062047, #7ecbff);
-  background-size: 360% 360%;
-  animation: blueFlow 14s ease infinite;
+  background: #020814;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(125deg, #01040c, #04122b, #0a2460, #123a86, #071833, #1a4f9a, #03101f, #0c2f66);
+  background-size: 420% 420%;
+  animation: blueFlow 42s ease-in-out infinite;
 }
 @keyframes blueFlow {
   0% { background-position: 0% 40%; }
@@ -31,11 +40,11 @@ body {
 }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
-.shell { position: relative; }
+.shell { position: relative; min-height: 100vh; min-height: 100dvh; }
 .topbar {
   position: sticky; top: 0; z-index: 20;
   padding: 12px 14px 8px;
-  background: linear-gradient(180deg, rgba(4, 20, 48, 0.55), transparent);
+  background: linear-gradient(180deg, rgba(2, 8, 20, 0.72), transparent);
   border-bottom: 0;
 }
 .brand-row, .nav-wrap, .page, .footer-inner { width: min(1180px, calc(100% - 24px)); margin: 0 auto; }
@@ -118,11 +127,9 @@ img { max-width: 100%; display: block; }
 .btn, .desk-grid a {
   border: 0; cursor: pointer; font: inherit; color: white; border-radius: 999px; padding: 12px 16px;
   background: linear-gradient(135deg, #0b5bd3, #3ec6ff);
-  background-size: 180% 180%;
-  animation: blueFlow 10s ease infinite;
   box-shadow: 0 10px 18px rgba(11, 91, 211, .28);
 }
-.btn.alt, .desk-grid a:nth-child(3n) { color: #123a6b; background: linear-gradient(135deg, #fff, #d7f3ff); animation: none; }
+.btn.alt, .desk-grid a:nth-child(3n) { color: #123a6b; background: linear-gradient(135deg, #fff, #d7f3ff); }
 .desk-grid a:nth-child(3n+2) { background: linear-gradient(135deg, #19b7e8, #0b3d91); }
 .hero, .grid, .chat-layout, .footer-inner { display: grid; gap: 14px; }
 .hero, .grid.cols-2, .footer-inner { grid-template-columns: 1.3fr .8fr; }
