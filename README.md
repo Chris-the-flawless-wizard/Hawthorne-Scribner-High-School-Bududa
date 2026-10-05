@@ -58,7 +58,10 @@ Cream paper, jade, champagne gold, and a copper accent. Buttons use a soft grain
 ## Office
 
 Front office hours: Monday to Friday, 7:30–17:00.  
-Saturday visitors by appointment.  
-Phone on the site: +256 700 214 860.
+Saturday visitors by appointment.
+
+- Phone: [0751676103](tel:+256751676103)
+- Email: [chrismukhwana456@gmail.com](mailto:chrismukhwana456@gmail.com)
+- Instagram: [@theimposiblewizard.10](https://instagram.com/theimposiblewizard.10)
 
 School details on these pages are written for this campus desk. Swap in the real timetable, staff names, and fee sheet before a public launch.
