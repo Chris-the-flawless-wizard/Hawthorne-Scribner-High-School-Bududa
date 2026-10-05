@@ -19,6 +19,15 @@ const pages = [
   ["contact.html", "Contact"]
 ];
 
+function loadArrange() {
+  if (document.getElementById("arrange-css")) return;
+  const link = document.createElement("link");
+  link.id = "arrange-css";
+  link.rel = "stylesheet";
+  link.href = "css/arrange.css";
+  document.head.appendChild(link);
+}
+
 function markNav() {
   const here = location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll("[data-nav]").forEach((a) => {
@@ -293,6 +302,7 @@ function dressMotto() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  loadArrange();
   markNav();
   wireFilters("[data-filter]", "kind");
   wireModals();
