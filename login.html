@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Holiday Packages · Hawthorne-Scribner High School</title>
+  <title>Sign in · Hawthorne-Scribner High School</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Sora:wght@360;500;640&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
@@ -50,23 +50,18 @@
 <a class="nav-btn" data-nav href="profile.html">Profile</a></nav>
     </div>
   </header>
-  <main class="page">
-
+  
 <section class="hero-copy" style="margin-bottom:16px">
-  <div class="kicker">December break</div>
-  <h2>Holiday packages by class.</h2>
-  <p class="lede">Each package is different. Nothing here is a repeat of the past-paper set.</p>
+  <div class="kicker">Student desk</div>
+  <h2>Sign in with your email.</h2>
+  <p class="lede">Use the email you want on this campus desk. The profile stays in this browser, so a picture and username you edit remain on this device.</p>
 </section>
-<div class="grid cols-3">
-  <article class="card" data-item><h3>S1 field sketch</h3><p>Draw the path from home to the nearest market. Label three land uses. Write 80 words on who uses the path.</p><button class="btn alt" data-save="S1 field sketch" type="button">Save</button></article>
-  <article class="card" data-item><h3>S2 kitchen science</h3><p>Measure how fast a wet cloth dries in sun and shade. Record times in a table and state one fair-test rule.</p></article>
-  <article class="card" data-item><h3>S3 story map</h3><p>Retell a family account of a harvest. Mark beginning, turn, and ending. No copied storybooks.</p></article>
-  <article class="card" data-item><h3>S4 mock bridge</h3><p>One timed paper from the revision desk, then a one-page error log with the topic you will revisit.</p></article>
-  <article class="card" data-item><h3>S5 research card</h3><p>Interview a grower about rainfall this year. Compare their notes with the school rain gauge chart.</p></article>
-  <article class="card" data-item><h3>S6 seminar brief</h3><p>Prepare a five-minute talk on one UNEB topic you find slippery. Bring a single cue card, not a script.</p></article>
-</div>
-
-  </main>
+<form class="panel form" style="padding:18px;max-width:560px" data-login>
+  <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" placeholder="name@email.com" required></div>
+  <button class="btn" type="submit">Sign in</button>
+  <p class="notice" data-notice></p>
+</form>
+</main>
 </div>
 <footer>
   <div class="footer-inner">

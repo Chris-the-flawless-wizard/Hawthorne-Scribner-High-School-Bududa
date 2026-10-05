@@ -161,10 +161,119 @@ function wireSearch() {
       music: "music.html", trend: "trending.html", photo: "photos.html",
       sport: "sports.html", club: "clubs.html", book: "library.html",
       staff: "staff.html", event: "events.html", admission: "admissions.html",
-      contact: "contact.html", academic: "academics.html"
+      contact: "contact.html", academic: "academics.html", profile: "profile.html", login: "login.html"
     };
     const hit = Object.keys(map).find((k) => q.includes(k));
     location.href = hit ? map[hit] : "index.html";
+  });
+}
+
+function loadProfile() {
+  try { return JSON.parse(localStorage.getItem("hshs-profile") || "null"); }
+  catch { return null; }
+}
+function saveProfile(profile) {
+  localStorage.setItem("hshs-profile", JSON.stringify(profile));
+}
+function defaultAvatar(name) {
+  const letter = (name || "H").slice(0, 1).toUpperCase();
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><rect width='160' height='160' rx='32' fill='%231f8a72'/><text x='80' y='98' text-anchor='middle' font-size='72' fill='%23f3d48a' font-family='Georgia'>${letter}</text></svg>`;
+  return `data:image/svg+xml,${svg}`;
+}
+function paintAccount() {
+  const profile = loadProfile();
+  const slot = document.querySelector(".brand-row");
+  if (!slot || document.querySelector("[data-account]")) return;
+  const link = document.createElement("a");
+  link.className = "nav-btn";
+  link.dataset.account = "1";
+  link.href = profile ? "profile.html" : "login.html";
+  const img = document.createElement("img");
+  img.alt = "";
+  img.width = 22;
+  img.height = 22;
+  img.style.borderRadius = "50%";
+  img.style.objectFit = "cover";
+  img.src = profile?.avatar || defaultAvatar(profile?.username || "Sign in");
+  link.append(img, document.createTextNode(profile ? profile.username : "Sign in"));
+  slot.insertBefore(link, slot.querySelector("[data-menu]"));
+}
+function wireLogin() {
+  const form = document.querySelector("[data-login]");
+  if (!form) return;
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const email = form.email.value.trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      form.querySelector("[data-notice]").textContent = "Enter a real email address, like name@school.com.";
+      form.querySelector("[data-notice]").classList.add("show");
+      return;
+    }
+    const existing = loadProfile();
+    const profile = existing && existing.email === email ? existing : {
+      email,
+      username: email.split("@")[0].replace(/[._]/g, " "),
+      avatar: defaultAvatar(email),
+      saved: ["S4 Algebra of the terrace", "S1 field sketch", "Mist over Elgon"]
+    };
+    saveProfile(profile);
+    location.href = "profile.html";
+  });
+}
+function wireProfile() {
+  const box = document.querySelector("[data-profile]");
+  if (!box) return;
+  const profile = loadProfile();
+  if (!profile) { location.href = "login.html"; return; }
+  box.querySelector("[data-avatar]").src = profile.avatar || defaultAvatar(profile.username);
+  box.querySelector("[data-email]").textContent = profile.email;
+  box.querySelector("[name=username]").value = profile.username;
+  const list = box.querySelector("[data-saved]");
+  const renderSaved = () => {
+    list.innerHTML = (profile.saved || []).map((item) => `<article class="row card"><div><h3>${item}</h3><p class="tiny">Saved on this device</p></div><button class="btn alt" type="button" data-drop="${item}">Remove</button></article>`).join("") || "<p>No saved desk items yet.</p>";
+  };
+  renderSaved();
+  box.querySelector("[data-pic]").addEventListener("change", () => {
+    const file = box.querySelector("[data-pic]").files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      profile.avatar = reader.result;
+      box.querySelector("[data-avatar]").src = profile.avatar;
+    };
+    reader.readAsDataURL(file);
+  });
+  box.querySelector("[data-save-profile]").addEventListener("click", () => {
+    const name = box.querySelector("[name=username]").value.trim();
+    if (!name) return;
+    profile.username = name;
+    saveProfile(profile);
+    box.querySelector("[data-profile-notice]").textContent = "Profile saved on this device.";
+    box.querySelector("[data-profile-notice]").classList.add("show");
+    paintAccount();
+  });
+  list.addEventListener("click", (e) => {
+    const drop = e.target.closest("[data-drop]");
+    if (!drop) return;
+    profile.saved = profile.saved.filter((item) => item !== drop.dataset.drop);
+    saveProfile(profile);
+    renderSaved();
+  });
+  box.querySelector("[data-logout]").addEventListener("click", () => {
+    localStorage.removeItem("hshs-profile");
+    location.href = "login.html";
+  });
+}
+function wireSaveButtons() {
+  document.querySelectorAll("[data-save]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const profile = loadProfile();
+      if (!profile) { location.href = "login.html"; return; }
+      profile.saved = profile.saved || [];
+      if (!profile.saved.includes(btn.dataset.save)) profile.saved.push(btn.dataset.save);
+      saveProfile(profile);
+      btn.textContent = "Saved";
+    });
   });
 }
 
@@ -176,6 +285,10 @@ document.addEventListener("DOMContentLoaded", () => {
   wireMusic();
   wireContact();
   wireSearch();
+  paintAccount();
+  wireLogin();
+  wireProfile();
+  wireSaveButtons();
   const toggle = document.querySelector("[data-menu]");
   toggle?.addEventListener("click", () => document.querySelector(".nav-wrap").classList.toggle("closed"));
 });

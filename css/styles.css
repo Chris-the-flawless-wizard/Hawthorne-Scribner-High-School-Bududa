@@ -84,6 +84,7 @@ img { max-width: 100%; display: block; }
 }
 .search input:focus, .field input:focus, .field textarea:focus { border-color: rgba(31, 138, 114, 0.55); }
 .search input { width: min(280px, 42vw); }
+.field input[type="file"] { border-radius: 16px; padding: 10px; width: 100%; background: #fffdf8; }
 .field textarea, .chat-compose input { border-radius: 16px; width: 100%; }
 .menu-toggle { display: none; }
 
