@@ -50,7 +50,7 @@ body::before {
 .campus-home { width: min(1100px, calc(100% - 28px)); margin: 0 auto; padding: 8px 0 48px; }
 .world-hero {
   display: grid;
-  grid-template-columns: 1.05fr .95fr;
+  grid-template-columns: 1fr;
   gap: 18px;
   padding: 18px;
   border-radius: 28px;
@@ -146,7 +146,6 @@ footer { color: #d5e2f8; }
 .footer-inner { background: #0c1d3d; }
 @media (max-width: 800px) {
   .world-hero, .glance { grid-template-columns: 1fr; }
-  .crest-card { min-height: 180px; }
 }
 
 .welcome-card {
