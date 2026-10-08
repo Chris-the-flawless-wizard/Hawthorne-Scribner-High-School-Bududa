@@ -21,31 +21,28 @@ const pages = [
 
 const navGroups = [
   { emoji: "\u{1F3E0}", label: "Home", href: "index.html" },
+  { emoji: "\u{1F4C4}", label: "Papers", href: "past-papers.html" },
+  { emoji: "\u{1F4DD}", label: "Notes", href: "notes.html" },
+  { emoji: "\u{1F392}", label: "Holidays", href: "holiday-packages.html" },
   {
-    emoji: "\u{1F4DA}",
-    label: "Study",
+    emoji: "\u{1F393}",
+    label: "Learn",
     items: [
-      ["past-papers.html", "\u{1F4C4}", "Past Papers"],
-      ["notes.html", "\u{1F4DD}", "Notes"],
-      ["holiday-packages.html", "\u{1F392}", "Holiday Packs"],
       ["academics.html", "\u{1F393}", "Academics"],
       ["library.html", "\u{1F4D6}", "Library"]
     ]
   },
   {
-    emoji: "\u{1F3EB}",
-    label: "School",
+    emoji: "\u{1F4E3}",
+    label: "News",
     items: [
       ["announcements.html", "\u{1F4E3}", "Announcements"],
-      ["events.html", "\u{1F4C5}", "Events"],
-      ["staff.html", "\u{1F468}\u{200D}\u{1F3EB}", "Staff"],
-      ["admissions.html", "\u2709\uFE0F", "Admissions"],
-      ["contact.html", "\u{1F4DE}", "Contact"]
+      ["events.html", "\u{1F4C5}", "Events"]
     ]
   },
   {
     emoji: "\u26BD",
-    label: "Life",
+    label: "Campus",
     items: [
       ["sports.html", "\u{1F3C0}", "Sports"],
       ["clubs.html", "\u{1F91D}", "Clubs"],
@@ -53,7 +50,7 @@ const navGroups = [
     ]
   },
   {
-    emoji: "\u2728",
+    emoji: "\u{1F3AC}",
     label: "Vibes",
     items: [
       ["movies.html", "\u{1F3AC}", "Movies"],
@@ -62,7 +59,16 @@ const navGroups = [
       ["chats.html", "\u{1F4AC}", "Chats"]
     ]
   },
-  { emoji: "\u{1F464}", label: "Profile", href: "profile.html" }
+  {
+    emoji: "\u{1F3EB}",
+    label: "Office",
+    items: [
+      ["staff.html", "\u{1F468}\u{200D}\u{1F3EB}", "Staff"],
+      ["admissions.html", "\u2709\uFE0F", "Admissions"],
+      ["contact.html", "\u{1F4DE}", "Contact"],
+      ["profile.html", "\u{1F464}", "Profile"]
+    ]
+  }
 ];
 
 function loadArrange() {
