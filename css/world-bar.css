@@ -90,3 +90,26 @@
   .pill-nav { order: 5; flex-basis: 100%; }
   .world-bar .search { flex: 1 1 160px; }
 }
+
+.pill-link { color: #fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,.16); }
+.pill-link.tone-home { background: #2563eb; }
+.pill-link.tone-chats { background: #0f766e; }
+.pill-link.tone-papers { background: #b45309; }
+.pill-link.tone-holiday { background: #15803d; }
+.pill-link.tone-notes { background: #a16207; }
+.pill-link.tone-news { background: #dc2626; }
+.pill-link.tone-movies { background: #7c3aed; }
+.pill-link.tone-music { background: #db2777; }
+.pill-link.tone-trend { background: #ea580c; }
+.pill-link.tone-photos { background: #0891b2; }
+.pill-link.tone-academics { background: #4f46e5; }
+.pill-link.tone-sports { background: #4d7c0f; }
+.pill-link.tone-clubs { background: #9333ea; }
+.pill-link.tone-library { background: #9a3412; }
+.pill-link.tone-staff { background: #1d4ed8; }
+.pill-link.tone-events { background: #be123c; }
+.pill-link.tone-admit { background: #047857; }
+.pill-link.tone-contact { background: #0369a1; }
+.pill-link.tone-profile { background: #334155; }
+.pill-link.active { outline: 2px solid #fff; outline-offset: 1px; filter: brightness(1.12); }
+.pill-link:hover { filter: brightness(1.16); }
