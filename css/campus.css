@@ -162,16 +162,22 @@ footer { color: #d5e2f8; }
   pointer-events: none;
 }
 .slide-frame img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   display: block;
-  opacity: .62;
-  filter: saturate(1.05) contrast(1.05);
-  transition: opacity .35s ease;
+  opacity: 0;
+  transform: scale(1.04);
+  filter: saturate(1.08) contrast(1.08);
+  transition: opacity .7s ease, transform 2s ease;
 }
-.slide-frame img.fade { opacity: 0; }
+.slide-frame img.on {
+  opacity: .72;
+  transform: scale(1);
+}
 .welcome-card::after {
   content: "";
   position: absolute;
