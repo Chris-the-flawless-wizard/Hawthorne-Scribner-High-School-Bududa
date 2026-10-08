@@ -103,10 +103,11 @@ function dressWorldBar() {
   bar.dataset.world = "1";
   bar.classList.add("world-bar");
   const here = location.pathname.split("/").pop() || "index.html";
-  const links = pillLinks.map(([href, label, emoji]) => {
+  const tones = ["home","chats","papers","holiday","notes","news","movies","music","trend","photos","academics","sports","clubs","library","staff","events","admit","contact","profile"];
+  const links = pillLinks.map(([href, label, emoji], n) => {
     const file = href.split("#")[0];
     const on = here === file;
-    return `<a class="pill-link${on ? " active" : ""}" data-nav href="${href}">${emoji}<span>${label}</span></a>`;
+    return `<a class="pill-link tone-${tones[n] || "home"}${on ? " active" : ""}" data-nav href="${href}">${emoji}<span>${label}</span></a>`;
   }).join("");
   const more = moreLinks.map(([href, label]) => `<a href="${href}">${label}</a>`).join("");
   bar.innerHTML = `
