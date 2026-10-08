@@ -42,7 +42,6 @@ function dressWorldBar() {
   bar.classList.add("world-bar");
   const here = location.pathname.split("/").pop() || "index.html";
   const links = pillLinks.map(([href, label, path]) => {
-    const active = here === href && label !== "Photos" ? " active" : (here === href && label === "Gallery" ? " active" : "");
     const on = (label === "Home" && here === "index.html") || (label === "Gallery" && here === "photos.html") || (label !== "Home" && label !== "Gallery" && label !== "Photos" && here === href);
     return `<a class="pill-link${on ? " active" : ""}" data-nav href="${href}">${icon(path)}<span>${label}</span></a>`;
   }).join("");
@@ -50,7 +49,7 @@ function dressWorldBar() {
   bar.innerHTML = `
     <a class="brand" href="index.html">
       <img class="badge" src="images/badge.png" alt="Hawthorne-Scribner High School badge">
-      <div class="nameplate"><strong>HSHS World <span class="check">\u2713</span></strong><span>Campus social</span></div>
+      <div class="nameplate"><strong>Hawthorne-Scribner <span class="check">\u2713</span></strong><span>High School · Bududa</span></div>
     </a>
     <nav class="pill-nav" aria-label="Primary">${links}</nav>
     <form class="search" action="photos.html">
