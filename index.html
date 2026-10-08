@@ -33,14 +33,20 @@
   </header>
   <main class="page campus-home">
     <section class="world-hero">
-      <div class="welcome-card">
-        <span class="pill">WELCOME TO</span>
-        <h2>Hawthorne-Scribner</h2>
-        <p class="tag"><strong>Your school. One campus.</strong><br>Photos, classes, and memories.</p>
-        <p>The home for school moments, achievements and community.</p>
-        <div class="hero-actions">
-          <a class="btn solid" href="photos.html">▶ Explore Feed</a>
-          <a class="btn ghost" href="academics.html">ℹ Learn More</a>
+      <div class="welcome-card" id="hero-rotator">
+        <div class="slide-frame" aria-hidden="true">
+          <img id="hero-slide" src="images/slides/campus-render.jpg" alt="Hawthorne-Scribner campus building">
+        </div>
+        <div class="welcome-copy">
+          <span class="pill">WELCOME TO</span>
+          <h2>Hawthorne-Scribner</h2>
+          <p class="tag"><strong>Your school. One campus.</strong><br>Photos, classes, and memories.</p>
+          <p>The home for school moments, achievements and community.</p>
+          <div class="hero-actions">
+            <a class="btn solid" href="photos.html">▶ Explore Feed</a>
+            <a class="btn ghost" href="academics.html">ℹ Learn More</a>
+          </div>
+          <div class="slide-dots" id="slide-dots" aria-hidden="true"></div>
         </div>
       </div>
       <div class="crest-card">
@@ -116,6 +122,42 @@
     <button class="btn" data-close type="button">Close</button>
   </article>
 </div>
+<script>
+(function () {
+  var pics = [
+    ["images/slides/campus-render.jpg", "Hawthorne-Scribner campus building"],
+    ["images/slides/staff-green.jpg", "School staff member"],
+    ["images/slides/staff-blue.jpg", "School staff member"],
+    ["images/slides/staff-white.jpg", "School staff member"],
+    ["images/slides/brick-building.jpg", "Hawthorne-Scribner brick building"]
+  ];
+  var img = document.getElementById("hero-slide");
+  var dots = document.getElementById("slide-dots");
+  if (!img || !dots) return;
+  var i = 0;
+  pics.forEach(function (_, n) {
+    var dot = document.createElement("span");
+    if (n === 0) dot.className = "on";
+    dots.appendChild(dot);
+  });
+  pics.forEach(function (pic) {
+    var pre = new Image();
+    pre.src = pic[0];
+  });
+  setInterval(function () {
+    i = (i + 1) % pics.length;
+    img.classList.add("fade");
+    window.setTimeout(function () {
+      img.src = pics[i][0];
+      img.alt = pics[i][1];
+      img.classList.remove("fade");
+      Array.prototype.forEach.call(dots.children, function (dot, n) {
+        dot.className = n === i ? "on" : "";
+      });
+    }, 280);
+  }, 2000);
+})();
+</script>
 <script src="js/app.js"></script>
 </body>
 </html>
