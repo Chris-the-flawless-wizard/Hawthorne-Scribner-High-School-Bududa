@@ -1,12 +1,23 @@
 const pillLinks = [
-  ["index.html", "Home", "M3 11.5 12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"],
-  ["photos.html", "Gallery", "M4 6h16v12H4z M8 14l2.5-3 2 2.5L16 10l4 5"],
-  ["photos.html#share", "Photos", "M5 7h14v10H5z M9 7l1.2-2h3.6L15 7"],
-  ["announcements.html", "Buzz", "M5 7h10v10H5z M15 10l4-2v8l-4-2z"],
-  ["trending.html", "Trending", "M12 4c1 3 3 4 3 7a3 3 0 1 1-6 0c0-1 .4-2 1-3-1 2-1 3 0 4"],
-  ["events.html", "Spotlight", "M12 4l1.8 4.2L18 10l-4.2 1.8L12 16l-1.8-4.2L6 10l4.2-1.8z"],
-  ["polls.html", "Polls", "M5 19V10 M12 19V5 M19 19v-7"],
-  ["photos.html", "Memories", "M12 7v5l3 2 M12 4a8 8 0 1 0 8 8"]
+  ["index.html", "Home", "🏠"],
+  ["chats.html", "Chats", "💬"],
+  ["past-papers.html", "Past Papers", "📄"],
+  ["holiday-packages.html", "Holiday Packages", "🎒"],
+  ["notes.html", "Notes", "📝"],
+  ["announcements.html", "Announcements", "📢"],
+  ["movies.html", "Movies", "🎬"],
+  ["music.html", "Music Vibes", "🎵"],
+  ["trending.html", "Trending", "🔥"],
+  ["photos.html", "Photos", "📷"],
+  ["academics.html", "Academics", "📚"],
+  ["sports.html", "Sports", "🏅"],
+  ["clubs.html", "Clubs", "👥"],
+  ["library.html", "Library", "📖"],
+  ["staff.html", "Staff", "🎓"],
+  ["events.html", "Events", "📅"],
+  ["admissions.html", "Admissions", "✅"],
+  ["contact.html", "Contact", "📞"],
+  ["profile.html", "Profile", "👤"]
 ];
 const searchPages = [
   ["home", "index.html"], ["gallery", "photos.html"], ["photo", "photos.html#share"],
@@ -92,9 +103,10 @@ function dressWorldBar() {
   bar.dataset.world = "1";
   bar.classList.add("world-bar");
   const here = location.pathname.split("/").pop() || "index.html";
-  const links = pillLinks.map(([href, label, path]) => {
-    const on = (label === "Home" && here === "index.html") || (label === "Gallery" && here === "photos.html") || (label !== "Home" && label !== "Gallery" && label !== "Photos" && here === href);
-    return `<a class="pill-link${on ? " active" : ""}" data-nav href="${href}">${icon(path)}<span>${label}</span></a>`;
+  const links = pillLinks.map(([href, label, emoji]) => {
+    const file = href.split("#")[0];
+    const on = here === file;
+    return `<a class="pill-link${on ? " active" : ""}" data-nav href="${href}">${emoji}<span>${label}</span></a>`;
   }).join("");
   const more = moreLinks.map(([href, label]) => `<a href="${href}">${label}</a>`).join("");
   bar.innerHTML = `
