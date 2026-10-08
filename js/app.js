@@ -66,12 +66,20 @@ const navGroups = [
 ];
 
 function loadArrange() {
-  if (document.getElementById("arrange-css")) return;
-  const link = document.createElement("link");
-  link.id = "arrange-css";
-  link.rel = "stylesheet";
-  link.href = "css/arrange.css";
-  document.head.appendChild(link);
+  if (!document.getElementById("arrange-css")) {
+    const link = document.createElement("link");
+    link.id = "arrange-css";
+    link.rel = "stylesheet";
+    link.href = "css/arrange.css";
+    document.head.appendChild(link);
+  }
+  if (!document.getElementById("nav-groups-css")) {
+    const link = document.createElement("link");
+    link.id = "nav-groups-css";
+    link.rel = "stylesheet";
+    link.href = "css/nav-groups.css";
+    document.head.appendChild(link);
+  }
 }
 
 function buildNav() {
