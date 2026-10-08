@@ -167,9 +167,8 @@ footer { color: #d5e2f8; }
   object-fit: cover;
   object-position: center;
   display: block;
-  opacity: .28;
-  filter: saturate(.85) contrast(1.05);
-  mix-blend-mode: soft-light;
+  opacity: .62;
+  filter: saturate(1.05) contrast(1.05);
   transition: opacity .35s ease;
 }
 .slide-frame img.fade { opacity: 0; }
@@ -177,10 +176,10 @@ footer { color: #d5e2f8; }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(160deg, rgba(29, 78, 216, .55), rgba(30, 64, 175, .42));
+  background: linear-gradient(105deg, rgba(12, 42, 110, .42) 0%, rgba(18, 58, 134, .22) 55%, rgba(18, 58, 134, .12) 100%);
   pointer-events: none;
 }
-.welcome-copy { position: relative; z-index: 1; }
+.welcome-copy { position: relative; z-index: 1; text-shadow: 0 1px 8px rgba(7, 24, 64, .35); }
 .slide-dots { display: flex; gap: 7px; margin-top: 16px; }
 .slide-dots span {
   width: 8px; height: 8px; border-radius: 50%;
