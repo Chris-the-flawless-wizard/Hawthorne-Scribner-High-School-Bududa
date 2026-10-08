@@ -233,3 +233,21 @@ footer .tiny, footer h3 { color: #eef7ff; }
   .brand-row { border-radius: 22px; }
   .nav-btn, .btn, .desk-grid a, .footer-inner a { flex: 1 1 42%; max-width: none; min-width: 0; }
 }
+
+.rooms button[data-room] {
+  color: #fff;
+  font-weight: 800;
+  margin-bottom: 8px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.18);
+}
+.rooms button[data-room="ridge-house"] { background: #2563eb; }
+.rooms button[data-room="science"] { background: #0f766e; }
+.rooms button[data-room="study"] { background: #4f46e5; }
+.rooms button[data-room="sports"] { background: #4d7c0f; }
+.rooms button.on {
+  outline: 2px solid #fff;
+  outline-offset: 1px;
+  filter: brightness(1.08);
+  box-shadow: 0 8px 16px rgba(12, 28, 63, .18);
+}
+.chat-compose .btn { background: #2563eb; color: #fff; border-radius: 14px; }
