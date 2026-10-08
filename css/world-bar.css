@@ -1,0 +1,92 @@
+.world-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: calc(100% - 20px);
+  margin: 8px auto 0;
+  padding: 8px 10px;
+  border-radius: 18px;
+  background: #0c1c3f;
+  box-shadow: inset 0 0 0 1px rgba(130, 176, 255, .16);
+}
+.world-bar .brand { flex: 0 0 auto; gap: 8px; }
+.world-bar .badge { width: 42px; height: 42px; border-radius: 50%; background: #071428; }
+.world-bar .nameplate strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: .98rem;
+  color: white;
+  -webkit-text-fill-color: white;
+}
+.world-bar .nameplate span { letter-spacing: .14em; font-size: .58rem; color: #9eb4dc; }
+.check {
+  width: 14px; height: 14px; border-radius: 50%;
+  display: inline-grid; place-items: center;
+  background: #3b82f6; color: white; font-size: .62rem;
+}
+.pill-nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: auto;
+  padding: 5px;
+  border-radius: 16px;
+  background: rgba(18, 40, 82, .85);
+  box-shadow: inset 0 0 0 1px rgba(140, 180, 255, .12);
+}
+.pill-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+  color: #d7e4ff;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: .86rem;
+  white-space: nowrap;
+}
+.pill-link svg { width: 16px; height: 16px; }
+.pill-link.active {
+  background: #2f7bff;
+  color: white;
+  box-shadow: inset 0 -2px 0 rgba(255,255,255,.55);
+}
+.pill-link:hover { background: rgba(47, 123, 255, .28); }
+.world-bar .search { flex: 0 1 230px; }
+.world-bar .search input {
+  width: 100%;
+  min-width: 0;
+  background: #10284f;
+  border: 1px solid rgba(126, 176, 255, .35);
+  color: white;
+}
+.upload-btn, .more-btn, .icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 38px;
+  border: 0;
+  border-radius: 12px;
+  color: white;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+}
+.upload-btn { background: #2f7bff; padding: 0 14px; white-space: nowrap; }
+.more-btn, .icon-btn { background: #16315f; }
+.more-btn { padding: 0 12px; }
+.icon-btn { width: 38px; border-radius: 50%; }
+.more-drop { position: relative; }
+.more-drop .nav-menu { right: 0; left: auto; min-width: 180px; }
+.nav-wrap { display: none !important; }
+@media (max-width: 980px) {
+  .world-bar { flex-wrap: wrap; }
+  .pill-nav { order: 5; flex-basis: 100%; }
+  .world-bar .search { flex: 1 1 160px; }
+}
