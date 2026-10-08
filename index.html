@@ -35,7 +35,8 @@
     <section class="world-hero">
       <div class="welcome-card" id="hero-rotator">
         <div class="slide-frame" aria-hidden="true">
-          <img id="hero-slide" src="images/slides/campus-render.jpg" alt="Hawthorne-Scribner campus building">
+          <img class="on" id="hero-slide" src="images/slides/campus-render.jpg" alt="Hawthorne-Scribner campus building">
+          <img id="hero-slide-next" src="images/slides/brick-building.jpg" alt="Hawthorne-Scribner brick building">
         </div>
         <div class="welcome-copy">
           <span class="pill">WELCOME TO</span>
@@ -122,13 +123,15 @@
 <script>
 (function () {
   var pics = [
-    ["images/slides/campus-render.jpg", "Hawthorne-Scribner campus building"],
-    ["images/slides/brick-building.jpg", "Hawthorne-Scribner brick building"]
+    ["images/slides/campus-render.jpg", "Campus building"],
+    ["images/slides/brick-building.jpg", "Brick building"]
   ];
-  var img = document.getElementById("hero-slide");
+  var a = document.getElementById("hero-slide");
+  var b = document.getElementById("hero-slide-next");
   var dots = document.getElementById("slide-dots");
-  if (!img || !dots) return;
+  if (!a || !b || !dots) return;
   var i = 0;
+  var showingA = true;
   pics.forEach(function (_, n) {
     var dot = document.createElement("span");
     if (n === 0) dot.className = "on";
@@ -140,15 +143,16 @@
   });
   setInterval(function () {
     i = (i + 1) % pics.length;
-    img.classList.add("fade");
-    window.setTimeout(function () {
-      img.src = pics[i][0];
-      img.alt = pics[i][1];
-      img.classList.remove("fade");
-      Array.prototype.forEach.call(dots.children, function (dot, n) {
-        dot.className = n === i ? "on" : "";
-      });
-    }, 280);
+    var front = showingA ? a : b;
+    var back = showingA ? b : a;
+    back.src = pics[i][0];
+    back.alt = pics[i][1];
+    back.classList.add("on");
+    front.classList.remove("on");
+    showingA = !showingA;
+    Array.prototype.forEach.call(dots.children, function (dot, n) {
+      dot.className = n === i ? "on" : "";
+    });
   }, 2000);
 })();
 </script>
