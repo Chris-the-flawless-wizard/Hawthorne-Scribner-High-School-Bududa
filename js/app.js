@@ -19,6 +19,52 @@ const pages = [
   ["contact.html", "Contact"]
 ];
 
+const navGroups = [
+  { emoji: "\u{1F3E0}", label: "Home", href: "index.html" },
+  {
+    emoji: "\u{1F4DA}",
+    label: "Study",
+    items: [
+      ["past-papers.html", "\u{1F4C4}", "Past Papers"],
+      ["notes.html", "\u{1F4DD}", "Notes"],
+      ["holiday-packages.html", "\u{1F392}", "Holiday Packs"],
+      ["academics.html", "\u{1F393}", "Academics"],
+      ["library.html", "\u{1F4D6}", "Library"]
+    ]
+  },
+  {
+    emoji: "\u{1F3EB}",
+    label: "School",
+    items: [
+      ["announcements.html", "\u{1F4E3}", "Announcements"],
+      ["events.html", "\u{1F4C5}", "Events"],
+      ["staff.html", "\u{1F468}\u{200D}\u{1F3EB}", "Staff"],
+      ["admissions.html", "\u2709\uFE0F", "Admissions"],
+      ["contact.html", "\u{1F4DE}", "Contact"]
+    ]
+  },
+  {
+    emoji: "\u26BD",
+    label: "Life",
+    items: [
+      ["sports.html", "\u{1F3C0}", "Sports"],
+      ["clubs.html", "\u{1F91D}", "Clubs"],
+      ["photos.html", "\u{1F4F7}", "Photos"]
+    ]
+  },
+  {
+    emoji: "\u2728",
+    label: "Vibes",
+    items: [
+      ["movies.html", "\u{1F3AC}", "Movies"],
+      ["music.html", "\u{1F3B5}", "Music"],
+      ["trending.html", "\u{1F525}", "Trending"],
+      ["chats.html", "\u{1F4AC}", "Chats"]
+    ]
+  },
+  { emoji: "\u{1F464}", label: "Profile", href: "profile.html" }
+];
+
 function loadArrange() {
   if (document.getElementById("arrange-css")) return;
   const link = document.createElement("link");
@@ -26,6 +72,66 @@ function loadArrange() {
   link.rel = "stylesheet";
   link.href = "css/arrange.css";
   document.head.appendChild(link);
+}
+
+function buildNav() {
+  const nav = document.querySelector("nav.nav");
+  if (!nav || nav.dataset.grouped) return;
+  const here = location.pathname.split("/").pop() || "index.html";
+  nav.dataset.grouped = "1";
+  nav.innerHTML = "";
+  navGroups.forEach((group) => {
+    if (group.href) {
+      const link = document.createElement("a");
+      link.className = "nav-btn";
+      link.dataset.nav = "";
+      link.href = group.href;
+      link.innerHTML = `<span class="emoji" aria-hidden="true">${group.emoji}</span><span>${group.label}</span>`;
+      if (group.href === here) link.classList.add("active");
+      nav.appendChild(link);
+      return;
+    }
+    const wrap = document.createElement("div");
+    wrap.className = "nav-drop";
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "nav-btn";
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-haspopup", "true");
+    const active = group.items.some(([href]) => href === here);
+    if (active) button.classList.add("active");
+    button.innerHTML = `<span class="emoji" aria-hidden="true">${group.emoji}</span><span>${group.label}</span><span class="caret" aria-hidden="true">\u25BE</span>`;
+    const menu = document.createElement("div");
+    menu.className = "nav-menu";
+    menu.setAttribute("role", "menu");
+    group.items.forEach(([href, emoji, label]) => {
+      const link = document.createElement("a");
+      link.href = href;
+      link.dataset.nav = "";
+      link.setAttribute("role", "menuitem");
+      if (href === here) link.classList.add("active");
+      link.innerHTML = `<span class="emoji" aria-hidden="true">${emoji}</span><span>${label}</span>`;
+      menu.appendChild(link);
+    });
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const open = wrap.classList.toggle("open");
+      button.setAttribute("aria-expanded", open ? "true" : "false");
+      document.querySelectorAll(".nav-drop.open").forEach((other) => {
+        if (other === wrap) return;
+        other.classList.remove("open");
+        other.querySelector("button")?.setAttribute("aria-expanded", "false");
+      });
+    });
+    wrap.append(button, menu);
+    nav.appendChild(wrap);
+  });
+  document.addEventListener("click", () => {
+    document.querySelectorAll(".nav-drop.open").forEach((drop) => {
+      drop.classList.remove("open");
+      drop.querySelector("button")?.setAttribute("aria-expanded", "false");
+    });
+  });
 }
 
 function markNav() {
@@ -289,7 +395,7 @@ function dressMotto() {
   document.querySelectorAll("footer .tiny").forEach((node) => {
     if (node.dataset.motto || !node.textContent.includes("Educate")) return;
     node.dataset.motto = "1";
-    node.textContent = node.textContent.replace(/Educate\s*·\s*Engage\s*·\s*Empower\.?/, "").trim();
+    node.textContent = node.textContent.replace(/Educate\s*\u00B7\s*Engage\s*\u00B7\s*Empower\.?/, "").trim();
     const row = document.createElement("div");
     row.className = "motto";
     ["Educate", "Engage", "Empower"].forEach((word) => {
@@ -303,6 +409,7 @@ function dressMotto() {
 
 document.addEventListener("DOMContentLoaded", () => {
   loadArrange();
+  buildNav();
   markNav();
   wireFilters("[data-filter]", "kind");
   wireModals();
