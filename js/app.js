@@ -1,12 +1,23 @@
 const pillLinks = [
   ["index.html", "Home", "M3 11.5 12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"],
   ["photos.html", "Gallery", "M4 6h16v12H4z M8 14l2.5-3 2 2.5L16 10l4 5"],
-  ["photos.html", "Photos", "M5 7h14v10H5z M9 7l1.2-2h3.6L15 7"],
-  ["movies.html", "Buzz", "M5 7h10v10H5z M15 10l4-2v8l-4-2z"],
+  ["photos.html#share", "Photos", "M5 7h14v10H5z M9 7l1.2-2h3.6L15 7"],
+  ["announcements.html", "Buzz", "M5 7h10v10H5z M15 10l4-2v8l-4-2z"],
   ["trending.html", "Trending", "M12 4c1 3 3 4 3 7a3 3 0 1 1-6 0c0-1 .4-2 1-3-1 2-1 3 0 4"],
   ["events.html", "Spotlight", "M12 4l1.8 4.2L18 10l-4.2 1.8L12 16l-1.8-4.2L6 10l4.2-1.8z"],
-  ["clubs.html", "Polls", "M5 19V10 M12 19V5 M19 19v-7"],
-  ["holiday-packages.html", "Memories", "M12 7v5l3 2 M12 4a8 8 0 1 0 8 8"]
+  ["polls.html", "Polls", "M5 19V10 M12 19V5 M19 19v-7"],
+  ["photos.html", "Memories", "M12 7v5l3 2 M12 4a8 8 0 1 0 8 8"]
+];
+const searchPages = [
+  ["home", "index.html"], ["gallery", "photos.html"], ["photo", "photos.html#share"],
+  ["buzz", "announcements.html"], ["announce", "announcements.html"], ["trend", "trending.html"],
+  ["spotlight", "events.html"], ["event", "events.html"], ["poll", "polls.html"],
+  ["memor", "photos.html"], ["note", "notes.html"], ["sport", "sports.html"],
+  ["club", "clubs.html"], ["staff", "staff.html"], ["library", "library.html"],
+  ["paper", "past-papers.html"], ["holiday", "holiday-packages.html"], ["contact", "contact.html"],
+  ["admission", "admissions.html"], ["chat", "chats.html"], ["music", "music.html"],
+  ["movie", "movies.html"], ["academic", "academics.html"], ["profile", "profile.html"],
+  ["class", "notes.html"], ["feed", "photos.html"]
 ];
 const moreLinks = [
   ["past-papers.html", "Past Papers"],
@@ -24,6 +35,46 @@ const moreLinks = [
 ];
 function icon(path) {
   return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${path}" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+}
+
+function wireSearch() {
+  document.querySelectorAll("form.search").forEach((form) => {
+    if (form.dataset.wired) return;
+    form.dataset.wired = "1";
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const q = (form.querySelector("input")?.value || "").trim().toLowerCase();
+      if (!q) return;
+      const hit = searchPages.find(([word]) => q.includes(word));
+      location.href = hit ? hit[1] : "photos.html";
+    });
+  });
+}
+function wireShareBox() {
+  if (!location.hash.includes("share")) return;
+  const main = document.querySelector("main");
+  if (!main || document.getElementById("share-box")) return;
+  const box = document.createElement("section");
+  box.id = "share-box";
+  box.className = "hero-copy";
+  box.innerHTML = `<div class="kicker">Photos</div><h2>Share a school moment</h2><p>Add a caption for the campus gallery. It stays on this device.</p><form data-share><input name="caption" required placeholder="What happened at school?" aria-label="Caption"><button class="btn" type="submit">Save moment</button></form><div data-saved></div>`;
+  main.prepend(box);
+  const saved = JSON.parse(localStorage.getItem("hshs-moments") || "[]");
+  const list = box.querySelector("[data-saved]");
+  function draw() {
+    list.innerHTML = saved.map((item) => `<p><strong>${item}</strong></p>`).join("");
+  }
+  draw();
+  box.querySelector("form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    const caption = event.target.caption.value.trim();
+    if (!caption) return;
+    saved.unshift(caption);
+    localStorage.setItem("hshs-moments", JSON.stringify(saved.slice(0, 8)));
+    event.target.reset();
+    draw();
+  });
+  box.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 function loadArrange() {
   [["arrange-css", "css/arrange.css"], ["nav-groups-css", "css/nav-groups.css"], ["campus-css", "css/campus.css"], ["world-bar-css", "css/world-bar.css"]].forEach(([id, href]) => {
@@ -55,7 +106,7 @@ function dressWorldBar() {
     <form class="search" action="photos.html">
       <input data-search type="search" placeholder="Search posts, students, events..." aria-label="Search pages">
     </form>
-    <a class="upload-btn" href="photos.html">+ Upload</a>
+    <a class="upload-btn" href="photos.html#share">+ Upload</a>
     <div class="more-drop">
       <button class="more-btn" type="button" aria-expanded="false">\u00b7\u00b7\u00b7 More</button>
       <div class="nav-menu">${more}</div>
@@ -343,6 +394,8 @@ function dressMotto() {
 document.addEventListener("DOMContentLoaded", () => {
   loadArrange();
   dressWorldBar();
+  wireSearch();
+  wireShareBox();
   markNav();
   wireFilters("[data-filter]", "kind");
   wireModals();
