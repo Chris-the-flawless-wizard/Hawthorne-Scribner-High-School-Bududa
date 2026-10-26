@@ -13,7 +13,7 @@ This repository is the school website: a static site with a shared navigation ba
 1. Download or clone this repository.
 2. Open `index.html` in a browser.
 
-No build step. No install. Styles live in `css/styles.css`. Page behaviour lives in `js/app.js`.
+No build step. No install. Base styles live in `css/styles.css`; the shared premium navy/white/gold responsive theme is in `css/premium.css`. Page behaviour and the saved light/dark theme toggle live in `js/app.js`.
 
 To publish it, set GitHub Pages to the `main` branch, or deploy the folder as a static site on Vercel.
 
@@ -51,9 +51,9 @@ To publish it, set GitHub Pages to the `main` branch, or deploy the folder as a 
 
 Movies and music on this site are school material only: student films, classroom documentaries, and original choir sketches.
 
-## Colours
+## Design and accessibility
 
-Cream paper, jade, champagne gold, and a copper accent. Buttons use a soft grain and lift slightly on hover.
+The shared design uses deep navy, white, and champagne gold with responsive layouts, consistent cards and controls, visible keyboard focus, reduced-motion support, and a light/dark theme toggle. The selected theme is remembered on the current device. School pages use the existing local image gallery and school imagery; verify image availability before launch.
 
 ## Office
 
