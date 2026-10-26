@@ -88,7 +88,7 @@ function wireShareBox() {
   box.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 function loadArrange() {
-  [["arrange-css", "css/arrange.css"], ["nav-groups-css", "css/nav-groups.css"], ["campus-css", "css/campus.css"], ["world-bar-css", "css/world-bar.css"]].forEach(([id, href]) => {
+  [["arrange-css", "css/arrange.css"], ["nav-groups-css", "css/nav-groups.css"], ["campus-css", "css/campus.css"], ["world-bar-css", "css/world-bar.css"], ["premium-css", "css/premium.css"]].forEach(([id, href]) => {
     if (document.getElementById(id)) return;
     const link = document.createElement("link");
     link.id = id;
@@ -126,6 +126,7 @@ function dressWorldBar() {
     </div>
     <a class="icon-btn" href="announcements.html" aria-label="Alerts">\uD83D\uDD14</a>
     <a class="icon-btn" href="profile.html" aria-label="Profile">\uD83D\uDC64</a>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch colour theme">🌙 Dark mode</button>
   `;
   const drop = bar.querySelector(".more-drop");
   const button = drop.querySelector("button");
@@ -137,6 +138,27 @@ function dressWorldBar() {
   document.addEventListener("click", () => {
     drop.classList.remove("open");
     button.setAttribute("aria-expanded", "false");
+  });
+}
+function wireThemeToggle() {
+  const root = document.documentElement;
+  let saved = "light";
+  try { saved = localStorage.getItem("hshs-theme") || "light"; } catch {}
+  if (saved !== "dark" && saved !== "light") saved = "light";
+  root.dataset.theme = saved;
+  const button = document.querySelector("[data-theme-toggle]");
+  if (!button) return;
+  const paint = () => {
+    const dark = root.dataset.theme === "dark";
+    button.textContent = dark ? "☀️ Light mode" : "🌙 Dark mode";
+    button.setAttribute("aria-pressed", dark ? "true" : "false");
+    button.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+  };
+  paint();
+  button.addEventListener("click", () => {
+    root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+    try { localStorage.setItem("hshs-theme", root.dataset.theme); } catch {}
+    paint();
   });
 }
 function markNav() {
@@ -407,6 +429,7 @@ function dressMotto() {
 document.addEventListener("DOMContentLoaded", () => {
   loadArrange();
   dressWorldBar();
+  wireThemeToggle();
   wireSearch();
   wireShareBox();
   markNav();
