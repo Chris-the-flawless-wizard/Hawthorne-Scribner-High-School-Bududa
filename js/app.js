@@ -1,23 +1,11 @@
 const pillLinks = [
-  ["index.html", "Home", "🏠"],
-  ["chats.html", "Chats", "💬"],
-  ["past-papers.html", "Past Papers", "📄"],
-  ["holiday-packages.html", "Holiday Packages", "🎒"],
-  ["notes.html", "Notes", "📝"],
-  ["announcements.html", "Announcements", "📢"],
-  ["movies.html", "Movies", "🎬"],
-  ["music.html", "Music Vibes", "🎵"],
-  ["trending.html", "Trending", "🔥"],
-  ["photos.html", "Photos", "📷"],
-  ["academics.html", "Academics", "📚"],
-  ["sports.html", "Sports", "🏅"],
-  ["clubs.html", "Clubs", "👥"],
-  ["library.html", "Library", "📖"],
-  ["staff.html", "Staff", "🎓"],
-  ["events.html", "Events", "📅"],
-  ["admissions.html", "Admissions", "✅"],
-  ["contact.html", "Contact", "📞"],
-  ["profile.html", "Profile", "👤"]
+  ["index.html", "Home", "⌂"],
+  ["academics.html", "Academics", "▤"],
+  ["past-papers.html", "Past Papers", "▧"],
+  ["photos.html", "Campus Life", "▧"],
+  ["events.html", "Events", "◷"],
+  ["admissions.html", "Admissions", "↗"],
+  ["contact.html", "Contact", "✉"]
 ];
 const searchPages = [
   ["home", "index.html"], ["gallery", "photos.html"], ["photo", "photos.html#share"],
@@ -31,18 +19,20 @@ const searchPages = [
   ["class", "notes.html"], ["feed", "photos.html"]
 ];
 const moreLinks = [
-  ["past-papers.html", "Past Papers"],
-  ["notes.html", "Notes"],
-  ["academics.html", "Academics"],
-  ["library.html", "Library"],
-  ["announcements.html", "Announcements"],
-  ["sports.html", "Sports"],
-  ["music.html", "Music"],
   ["chats.html", "Chats"],
+  ["holiday-packages.html", "Holiday Packages"],
+  ["notes.html", "Notes"],
+  ["announcements.html", "Announcements"],
+  ["movies.html", "Movies"],
+  ["music.html", "Music Vibes"],
+  ["trending.html", "Trending"],
+  ["sports.html", "Sports"],
+  ["clubs.html", "Clubs"],
+  ["library.html", "Library"],
   ["staff.html", "Staff"],
-  ["admissions.html", "Admissions"],
-  ["contact.html", "Contact"],
-  ["profile.html", "Profile"]
+  ["profile.html", "Profile"],
+  ["login.html", "Sign In"],
+  ["polls.html", "Polls"]
 ];
 function icon(path) {
   return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${path}" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
