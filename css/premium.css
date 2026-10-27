@@ -127,13 +127,13 @@ html[data-theme="dark"] footer{background:#050b13}
 
 /* Homepage premium treatment — deep navy, royal blue, and white */
 .home .luxury-hero{min-height:clamp(500px,56vw,660px);margin:24px 0 58px;border:1px solid rgba(147,197,253,.55);border-radius:24px;background-color:#08182c;background-position:center 43%!important;box-shadow:0 28px 70px rgba(6,20,38,.20)}
-.home .luxury-hero:before{z-index:0;background:linear-gradient(90deg,rgba(5,17,33,.96) 0%,rgba(7,24,45,.89) 44%,rgba(7,24,45,.50) 72%,rgba(7,24,45,.16) 100%)}
+.home .luxury-hero:before{z-index:0;background:linear-gradient(100deg,rgba(5,17,33,.78) 0%,rgba(8,24,44,.55) 38%,rgba(8,24,44,.28) 68%,rgba(8,24,44,.08) 100%)}
 .home .luxury-hero:after{content:"";position:absolute;z-index:0;inset:12px;border:1px solid rgba(147,197,253,.27);border-radius:17px;pointer-events:none}
 .home .luxury-hero .luxury-hero-copy{position:relative;z-index:2;max-width:790px;width:70%;padding:clamp(30px,5.6vw,72px);padding-right:0}
 .home .hero-kicker{background:rgba(37,99,235,.12);border-color:rgba(147,197,253,.72);color:#dbeafe;letter-spacing:.17em}
 .home .hero-location{margin:24px 0 0;font-size:.72rem;font-weight:900;letter-spacing:.20em;color:#bfdbfe}
 .home .hero-location span{padding:0 5px;color:#93c5fd}
-.home .luxury-hero h1{max-width:720px;margin:13px 0 0;font-family:var(--serif);font-size:clamp(2.9rem,5.7vw,5.4rem);line-height:.99;letter-spacing:-.055em;color:#fff;text-wrap:balance}
+.home .luxury-hero h1{max-width:780px;margin:10px 0 0;font-family:var(--serif);font-size:clamp(3.1rem,6.2vw,5.8rem);line-height:.96;letter-spacing:-.06em;color:#fff;text-wrap:balance;text-shadow:0 4px 28px rgba(0,0,0,.35)}
 .home .luxury-hero h1 span{display:block;color:#93c5fd}
 .home .hero-gold-rule{width:74px;height:3px;margin:24px 0 16px;background:linear-gradient(90deg,#93c5fd,#17365d);border-radius:9px}
 .home .hero-motto{margin:0 0 8px!important;color:#fff!important;font-family:var(--serif);font-size:clamp(1.25rem,2vw,1.6rem)!important;font-style:italic;letter-spacing:.01em}
