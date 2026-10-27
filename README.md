@@ -4,7 +4,7 @@ Campus desk for Hawthorne-Scribner High School, Bududa District, Eastern Uganda.
 
 Motto: **Educate • Engage • Empower.**  
 Setting: Ridge Road, above the coffee terraces of Bududa.  
-Pathway: S1–S6, with house life in Elgon, Coffee, Ridge, and Falls.
+Pathway: S1–S6. Confirm current school-specific details with the office before publishing them as official information.
 
 This repository is the school website: a static site with a shared navigation bar, textured buttons, and a page for each desk.
 
@@ -13,7 +13,7 @@ This repository is the school website: a static site with a shared navigation ba
 1. Download or clone this repository.
 2. Open `index.html` in a browser.
 
-No build step. No install. Base styles live in `css/styles.css`; the shared premium navy/white/gold responsive theme is in `css/premium.css`. Page behaviour and the saved light/dark theme toggle live in `js/app.js`.
+No build step. No install. Base styles live in `css/styles.css`; the shared navy/royal-blue/white responsive theme is in `css/premium.css`. Page behaviour and the saved light/dark theme toggle live in `js/app.js`.
 
 To publish it, set GitHub Pages to the `main` branch, or deploy the folder as a static site on Vercel.
 
@@ -21,7 +21,7 @@ To publish it, set GitHub Pages to the `main` branch, or deploy the folder as a 
 
 | Button | File | What it does |
 | --- | --- | --- |
-| Home | `index.html` | Ridge introduction, house count, and doors into the desks |
+| Home | `index.html` | School introduction, visitor pathways, campus gallery and admissions guidance |
 | Chats | `chats.html` | Four school rooms. A note you send stays on that device |
 | Past Papers | `past-papers.html` | Original practice sheets, filtered by subject |
 | Holiday Packages | `holiday-packages.html` | A different break task for each class, S1 to S6 |
@@ -37,23 +37,23 @@ To publish it, set GitHub Pages to the `main` branch, or deploy the folder as a 
 | Library | `library.html` | Borrowing rules and the current shelf |
 | Staff | `staff.html` | Who to ask, from the head teacher to the lab |
 | Events | `events.html` | Term dates, each linked to its desk |
-| Admissions | `admissions.html` | What to bring, and the visiting morning |
-| Contact | `contact.html` | Front-office note. It confirms on the page |
+| Admissions | `admissions.html` | Guidance for confirming current requirements and arranging a visit |
+| Contact | `contact.html` | Office contact details and a demonstration form that does not send messages |
 
 ## How the buttons behave
 
-- Gold buttons are the shared navigation. The page you are on turns jade.
+- Royal-blue buttons and links form the shared visual identity; the current main navigation item is highlighted.
 - Past Papers and Notes filter with the chips, then open a sample in a sheet.
 - Chats keeps Ridge House, Science bench, Quiet study, and Games pavilion separate.
 - Music Vibes plays a short original motif in the browser. These are not copied songs.
 - The search field on the top bar jumps to a desk when you type a word such as `paper`, `music`, or `admission`, then press Enter.
-- Contact checks that name, email, and message are filled in before it shows a thank-you line.
+- The contact form validates the fields but does not send messages. Use the listed phone or email to contact the office.
 
 Movies and music on this site are school material only: student films, classroom documentaries, and original choir sketches.
 
 ## Design and accessibility
 
-The shared design uses deep navy, white, and champagne gold with responsive layouts, consistent cards and controls, visible keyboard focus, reduced-motion support, and a light/dark theme toggle. The selected theme is remembered on the current device. School pages use the existing local image gallery and school imagery; verify image availability before launch.
+The shared design uses deep navy, royal blue, and white with responsive layouts, consistent cards and controls, visible keyboard focus, reduced-motion support, and a light/dark theme toggle. The selected theme is remembered on the current device. School pages use the existing local image gallery and school imagery; verify image availability before launch.
 
 ## Office
 
