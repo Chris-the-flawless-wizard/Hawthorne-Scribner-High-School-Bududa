@@ -2,7 +2,7 @@
 
 Campus desk for Hawthorne-Scribner High School, Bududa District, Eastern Uganda.
 
-Motto: **Rise with the ridge.**  
+Motto: **Educate • Engage • Empower.**  
 Setting: Ridge Road, above the coffee terraces of Bududa.  
 Pathway: S1–S6, with house life in Elgon, Coffee, Ridge, and Falls.
 
