@@ -275,24 +275,6 @@ function wireContact() {
     form.reset();
   });
 }
-function wireSearch() {
-  const input = document.querySelector("[data-search]");
-  if (!input) return;
-  input.addEventListener("keydown", (e) => {
-    if (e.key !== "Enter") return;
-    const q = input.value.toLowerCase();
-    const map = {
-      chat: "chats.html", paper: "past-papers.html", holiday: "holiday-packages.html",
-      note: "notes.html", announce: "announcements.html", movie: "movies.html",
-      music: "music.html", trend: "trending.html", photo: "photos.html",
-      sport: "sports.html", club: "clubs.html", book: "library.html",
-      staff: "staff.html", event: "events.html", admission: "admissions.html",
-      contact: "contact.html", academic: "academics.html", profile: "profile.html", login: "login.html"
-    };
-    const hit = Object.keys(map).find((k) => q.includes(k));
-    location.href = hit ? map[hit] : "photos.html";
-  });
-}
 function loadProfile() {
   try { return JSON.parse(localStorage.getItem("hshs-profile") || "null"); }
   catch { return null; }
@@ -428,7 +410,6 @@ document.addEventListener("DOMContentLoaded", () => {
   wireChat();
   wireMusic();
   wireContact();
-  wireSearch();
   wireLogin();
   wireProfile();
   wireSaveButtons();
