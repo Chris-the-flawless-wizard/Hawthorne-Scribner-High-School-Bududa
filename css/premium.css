@@ -127,7 +127,7 @@ html[data-theme="dark"] footer{background:#050b13}
 
 /* Homepage premium treatment — deep navy, royal blue, and white */
 .home .luxury-hero{min-height:clamp(520px,58vw,680px);margin:24px 0 64px;border:1px solid rgba(240,199,94,.35);border-radius:26px;background-color:#08182c;background-position:center 40%!important;background-size:cover;box-shadow:0 32px 80px rgba(6,20,38,.22)}
-.home .luxury-hero:before{z-index:0;background:linear-gradient(108deg,rgba(5,17,33,.82) 0%,rgba(7,22,40,.58) 28%,rgba(8,24,44,.34) 52%,rgba(8,24,44,.12) 78%,rgba(8,24,44,.02) 100%),linear-gradient(to top,rgba(5,17,33,.28) 0%,transparent 36%)}
+.home .luxury-hero:before{z-index:0;background:linear-gradient(108deg,rgba(5,17,33,.72) 0%,rgba(7,22,40,.48) 28%,rgba(8,24,44,.26) 52%,rgba(8,24,44,.08) 78%,rgba(8,24,44,.01) 100%),linear-gradient(to top,rgba(5,17,33,.18) 0%,transparent 40%)}
 .home .luxury-hero:after{content:"";position:absolute;z-index:0;inset:12px;border:1px solid rgba(147,197,253,.27);border-radius:17px;pointer-events:none}
 .home .luxury-hero .luxury-hero-copy{position:relative;z-index:2;max-width:790px;width:70%;padding:clamp(30px,5.6vw,72px);padding-right:0}
 .home .hero-kicker{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.6);color:#ffffff;letter-spacing:.16em;text-shadow:0 1px 3px rgba(0,0,0,.3)}
