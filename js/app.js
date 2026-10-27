@@ -270,7 +270,7 @@ function wireContact() {
     const data = Object.fromEntries(new FormData(form).entries());
     if (!data.name || !data.email || !data.message) return;
     const box = document.querySelector("[data-notice]");
-    box.textContent = `Thank you, ${data.name}. The front office has your note about ${data.topic}.`;
+    box.textContent = `Thanks, ${data.name}. This demo form has not sent your message. Please contact the school by phone or email above about ${data.topic}.`;
     box.classList.add("show");
     form.reset();
   });
