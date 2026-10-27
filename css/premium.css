@@ -199,3 +199,99 @@ html[data-theme="dark"] .home .feature-card p{color:#b8c4d5}
  .home .hero-facts span{flex-direction:row;align-items:baseline;gap:8px}
  .home .feature-grid{grid-template-columns:1fr}
 }
+
+
+/* Consistent school photography, generous spacing, and a linked homepage gallery */
+.page-banner{
+  position:relative;
+  isolation:isolate;
+  display:flex;
+  align-items:flex-end;
+  min-height:clamp(220px,29vw,350px);
+  margin:24px 0 30px;
+  overflow:hidden;
+  border-radius:22px;
+  background:#0b1d34;
+  box-shadow:var(--shadow);
+}
+.page-banner::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background:linear-gradient(90deg,rgba(7,22,41,.78),rgba(7,22,41,.22) 78%),linear-gradient(0deg,rgba(7,22,41,.52),transparent 58%);
+  pointer-events:none;
+}
+.page-banner img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  max-height:none;
+  object-fit:cover;
+  object-position:center 48%;
+  transition:transform .6s ease;
+}
+.page-banner:hover img{transform:scale(1.025)}
+.page-banner span{
+  position:relative;
+  z-index:1;
+  display:block;
+  max-width:100%;
+  padding:clamp(22px,4vw,42px);
+  color:#fff;
+  font-family:var(--serif);
+  font-size:clamp(2rem,5vw,3.6rem);
+  font-weight:700;
+  line-height:1.08;
+  letter-spacing:-.035em;
+  text-shadow:0 2px 18px rgba(0,0,0,.28);
+}
+.feature-card{padding:22px 22px 24px;overflow:hidden}
+.feature-photo{
+  display:block;
+  width:calc(100% + 44px);
+  height:clamp(150px,16vw,190px);
+  margin:-22px -22px 19px;
+  object-fit:cover;
+  border-radius:0;
+}
+.photo-feature-row{align-items:stretch;gap:20px;margin-block:26px 34px}
+.photo-feature{height:100%;display:flex;flex-direction:column}
+.photo-feature img{flex:0 0 auto;height:clamp(190px,24vw,290px);object-fit:cover}
+.photo-feature figcaption{flex:1;padding:14px 17px}
+.album{min-width:0;overflow:hidden;background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 26px rgba(15,35,60,.07);padding:0;transition:transform .22s ease,box-shadow .22s ease}
+.album:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.album .shot{display:block;width:100%;height:clamp(190px,24vw,300px);object-fit:cover}
+.album h3,.album p{margin-inline:18px}
+.album h3{margin-top:17px;margin-bottom:5px;color:var(--jade-deep);font-family:var(--serif)}
+.album p{margin-top:0;margin-bottom:20px}
+.gallery-preview-section{margin:clamp(38px,6vw,68px) 0}
+.gallery-preview-section .section-head{align-items:end;margin:0 0 20px}
+.gallery-eyebrow{margin:0 0 5px!important;color:var(--gold-deep)!important;font-size:.75rem!important;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+.gallery-all-link{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:var(--jade-deep);font-size:.88rem;font-weight:900;text-decoration:none;white-space:nowrap}
+.gallery-all-link:hover{border-color:var(--gold);transform:translateY(-1px)}
+.campus-gallery-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr;grid-template-rows:repeat(2,minmax(145px,1fr));gap:15px}
+.campus-gallery-card{position:relative;isolation:isolate;display:block;min-width:0;min-height:160px;overflow:hidden;border-radius:17px;background:#0b1d34;box-shadow:0 8px 24px rgba(15,35,60,.1);text-decoration:none}
+.campus-gallery-card--feature{grid-row:span 2}
+.campus-gallery-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.campus-gallery-card::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(0deg,rgba(5,18,34,.84),rgba(5,18,34,.04) 76%)}
+.campus-gallery-card:hover img,.campus-gallery-card:focus-visible img{transform:scale(1.045)}
+.campus-gallery-caption{position:absolute;z-index:1;inset:auto 0 0;display:flex;flex-direction:column;gap:3px;padding:18px;color:#fff}
+.campus-gallery-caption strong{font-family:var(--serif);font-size:clamp(1rem,1.6vw,1.35rem);line-height:1.2}
+.campus-gallery-caption small{color:rgba(255,255,255,.83);font-size:.8rem}
+@media(max-width:720px){
+  .page-banner{min-height:230px;border-radius:17px;margin:16px 0 24px}
+  .campus-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto}
+  .campus-gallery-card,.campus-gallery-card--feature{grid-row:auto;min-height:185px}
+  .campus-gallery-card--feature{grid-column:span 2;min-height:240px}
+  .gallery-preview-section .section-head{align-items:flex-start;flex-direction:column}
+  .gallery-all-link{white-space:normal}
+}
+@media(max-width:420px){
+  .campus-gallery-grid{gap:10px}
+  .campus-gallery-card,.campus-gallery-card--feature{min-height:160px}
+  .campus-gallery-card--feature{min-height:210px}
+  .campus-gallery-caption{padding:13px}
+  .campus-gallery-caption small{font-size:.74rem}
+}
