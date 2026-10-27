@@ -243,3 +243,14 @@ html[data-theme="dark"] .home .feature-card p{color:#b8c4d5}
  .home .campus-gallery-card{min-height:180px}
  .home .campus-gallery-card--feature{grid-column:span 2;grid-row:auto;min-height:250px}
 }
+
+/* Teacher Consultation section */
+.teacher-consult{margin:clamp(48px,7vw,80px) 0;padding:clamp(28px,4vw,42px);background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:0 10px 30px rgba(15,35,60,.06)}
+.teacher-consult .section-head{margin:0 0 22px}
+.consult-form{display:flex;flex-direction:column;gap:14px}
+.consult-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.consult-form label{display:flex;flex-direction:column;gap:6px;font-size:.88rem;font-weight:800;color:var(--jade-deep)}
+.consult-form input,.consult-form textarea{font-weight:500;color:var(--ink);background:#f7f9fc;border:1px solid var(--line);border-radius:10px;padding:11px 13px}
+.consult-form input:focus,.consult-form textarea:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+.consult-form .btn.solid{align-self:flex-start;margin-top:6px;background:linear-gradient(135deg,#93c5fd,#2563eb);color:#102039;border:1px solid #bfdbfe;border-radius:10px;padding:13px 22px;font-weight:900}
+@media(max-width:680px){.consult-grid{grid-template-columns:1fr}}
