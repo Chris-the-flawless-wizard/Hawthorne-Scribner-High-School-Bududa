@@ -269,3 +269,64 @@ html[data-theme="dark"] .home .school-experience-card a{color:#93c5fd}
   .home .school-experience-card{grid-template-columns:44px minmax(0,1fr);gap:13px;padding:19px}
   .home .school-experience-icon{width:44px;height:44px;border-radius:12px;font-size:1.35rem}
 }
+
+
+/* Site-wide finishing pass — consistent royal-blue identity on every page */
+:root{--gold:#2563eb;--gold-deep:#1d4ed8;--jade:#2563eb;--jade-deep:#0b1d34;--jade-soft:#e8f1ff}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+body{overflow-wrap:break-word}
+::selection{background:#bfdbfe;color:#0b1d34}
+.topbar,.world-bar{color:var(--ink)}
+.nameplate strong{color:#0b1d34}
+.nav-btn,.btn.solid,.upload-btn{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;border-color:#2563eb;box-shadow:0 7px 18px rgba(37,99,235,.18)}
+.nav-btn:hover,.btn.solid:hover,.upload-btn:hover{background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:#fff;box-shadow:0 10px 24px rgba(37,99,235,.24)}
+.btn.ghost{color:#1d4ed8;border-color:#93c5fd;background:#fff}
+.btn.ghost:hover{background:#eff6ff}
+.pill-link{border-radius:10px;transition:background .18s ease,color .18s ease,transform .18s ease}
+.pill-link.active{background:#e8f1ff;color:#1d4ed8;border:1px solid #bfdbfe}
+.more-btn,.icon-btn,.theme-toggle{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.search input,.field input,.field textarea,.field select,input,textarea,select{max-width:100%;border-radius:12px}
+.field label{display:block;margin-bottom:6px;font-weight:800;color:var(--jade-deep)}
+.form,.panel{min-width:0}
+.notice{padding:0}
+.notice.show{padding:12px 14px;border:1px solid #bfdbfe;border-radius:12px;background:#eff6ff;color:#17365d}
+.page{min-width:0}
+.page>section,.page>article{min-width:0}
+.page h1,.page h2,.page h3,.page h4{overflow-wrap:normal}
+.card a:not(.btn),.page p a:not(.btn){color:#1d4ed8;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.card a.btn,.page p a.btn{color:#fff;text-decoration:none}
+.card a:hover,.page p a:hover{color:#1e40af}
+.page-banner{isolation:isolate}
+.page-banner:after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(90deg,rgba(7,22,41,.68),rgba(7,22,41,.08))}
+.page-banner span{z-index:1;background:#1d4ed8;color:#fff;box-shadow:0 5px 18px rgba(0,0,0,.18)}
+.feature-card{height:100%;transition:transform .2s ease,box-shadow .2s ease}
+.feature-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.home .hero-gold-rule{background:linear-gradient(90deg,#60a5fa,#2563eb)}
+.home .luxury-hero{border-color:rgba(147,197,253,.4)}
+.home .luxury-hero .btn.solid{background:linear-gradient(135deg,#3b82f6,#1d4ed8);border-color:#93c5fd;color:#fff;box-shadow:0 10px 28px rgba(37,99,235,.3)}
+.home .luxury-hero .btn.solid:hover{background:linear-gradient(135deg,#60a5fa,#2563eb);color:#fff}
+.home .hero-gold-rule{background:linear-gradient(90deg,#93c5fd,#2563eb)}
+.home .home-community-note{border-color:#bfdbfe}
+.home .school-experience-card a,.home .gallery-all-link{color:#1d4ed8}
+html[data-theme="dark"] .nameplate strong{color:#dbeafe}
+html[data-theme="dark"] .btn.ghost{background:#121f31;color:#bfdbfe;border-color:#35577e}
+html[data-theme="dark"] .card a:not(.btn),html[data-theme="dark"] .page p a:not(.btn){color:#93c5fd}
+html[data-theme="dark"] .card a.btn,html[data-theme="dark"] .page p a.btn{color:#fff}
+html[data-theme="dark"] .notice.show{background:#12243a;border-color:#35577e;color:#dbeafe}
+html[data-theme="dark"] .pill-link.active{background:#1d4ed8;color:#fff;border-color:#60a5fa}
+html[data-theme="dark"] .home .school-experience-card a,html[data-theme="dark"] .home .gallery-all-link{color:#93c5fd}
+html[data-theme="dark"] .home .luxury-hero .btn.solid{color:#fff}
+html[data-theme="dark"] .visitor-hub-card,html[data-theme="dark"] .admissions-roadmap,html[data-theme="dark"] .home-community-note{background:var(--paper);border-color:var(--line);color:var(--ink)}
+@media(max-width:680px){
+  .page{padding-inline:0}
+  .section-head h3{font-size:clamp(1.45rem,6vw,1.8rem)}
+  .grid.cols-2,.grid.cols-3,.grid.cols-4{grid-template-columns:1fr}
+  .page-banner img{height:210px}
+  .page-banner span{left:14px;bottom:14px}
+  .hero-copy,.panel,.card{overflow-wrap:anywhere}
+  .btn,.nav-btn{max-width:100%;white-space:normal}
+  .home .luxury-hero{margin-top:14px;border-radius:18px}
+  .home .luxury-hero h1{font-size:clamp(2.65rem,12vw,4rem)}
+}
+@media(hover:none){.feature-card:hover,.card:hover,.album:hover,.photo-feature:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
