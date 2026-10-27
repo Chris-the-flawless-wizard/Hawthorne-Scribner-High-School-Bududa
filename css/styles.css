@@ -137,8 +137,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 .pill {
   display: inline-block;
-  background: rgba(232, 195, 106, 0.9);
-  color: var(--jade-deep);
+  background: #2563eb;
+  color: #ffffff;
   padding: 6px 14px;
   border-radius: 999px;
   font-size: 0.75rem;
