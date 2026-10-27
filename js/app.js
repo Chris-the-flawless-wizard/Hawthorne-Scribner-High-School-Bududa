@@ -284,7 +284,7 @@ function saveProfile(profile) {
 }
 function defaultAvatar(name) {
   const letter = (name || "H").slice(0, 1).toUpperCase();
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><rect width='160' height='160' rx='32' fill='%231f8a72'/><text x='80' y='98' text-anchor='middle' font-size='72' fill='%23f3d48a' font-family='Georgia'>${letter}</text></svg>`;
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><rect width='160' height='160' rx='32' fill='%230b1d34'/><text x='80' y='98' text-anchor='middle' font-size='72' fill='%2393c5fd' font-family='Georgia'>${letter}</text></svg>`;
   return `data:image/svg+xml,${svg}`;
 }
 function paintAccount() {
