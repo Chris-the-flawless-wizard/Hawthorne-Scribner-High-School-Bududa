@@ -243,3 +243,29 @@ html[data-theme="dark"] .home .feature-card p{color:#b8c4d5}
  .home .campus-gallery-card{min-height:180px}
  .home .campus-gallery-card--feature{grid-column:span 2;grid-row:auto;min-height:250px}
 }
+
+
+/* Homepage school-experience section: useful destinations without duplicating the gallery */
+.home .school-experience{margin:clamp(52px,7vw,84px) 0}
+.home .school-experience-heading{margin:0 0 22px}
+.home .home-eyebrow{margin:0 0 7px;color:#2563eb;font-size:.74rem;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+.home .section-intro{max-width:65ch;margin:10px 0 0;color:var(--ink-soft);font-size:.96rem;line-height:1.7}
+.home .school-experience-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.home .school-experience-card{display:grid;grid-template-columns:54px minmax(0,1fr);align-items:start;gap:17px;min-width:0;padding:24px;border:1px solid var(--line);border-radius:17px;background:var(--paper);box-shadow:0 8px 25px rgba(15,35,60,.045);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.home .school-experience-card:hover{transform:translateY(-3px);border-color:#93c5fd;box-shadow:var(--shadow)}
+.home .school-experience-icon{display:grid;place-items:center;width:52px;height:52px;border:1px solid #bfdbfe;border-radius:15px;background:#eff6ff;font-size:1.55rem}
+.home .school-experience-label{margin:0 0 4px;color:#2563eb;font-size:.69rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.home .school-experience-card h4{margin:0 0 7px;color:var(--jade-deep);font-family:var(--serif);font-size:1.28rem;line-height:1.25}
+.home .school-experience-card p:not(.school-experience-label){margin:0 0 14px;color:var(--ink-soft);font-size:.9rem;line-height:1.65}
+.home .school-experience-card a{display:inline-flex;align-items:center;gap:6px;margin:4px 14px 0 0;color:#1d4ed8;font-size:.86rem;font-weight:900;text-decoration:none}
+.home .school-experience-card a:hover{text-decoration:underline;text-underline-offset:4px}
+html[data-theme="dark"] .home .school-experience-card{background:var(--paper);border-color:var(--line)}
+html[data-theme="dark"] .home .school-experience-card h4{color:#dbeafe}
+html[data-theme="dark"] .home .school-experience-card p:not(.school-experience-label){color:var(--ink-soft)}
+html[data-theme="dark"] .home .school-experience-icon{background:#1b2d44;border-color:#35577e}
+html[data-theme="dark"] .home .school-experience-card a{color:#93c5fd}
+@media(max-width:680px){
+  .home .school-experience-grid{grid-template-columns:1fr;gap:12px}
+  .home .school-experience-card{grid-template-columns:44px minmax(0,1fr);gap:13px;padding:19px}
+  .home .school-experience-icon{width:44px;height:44px;border-radius:12px;font-size:1.35rem}
+}
